@@ -1,0 +1,15 @@
+!!! 5
+%html
+  %head
+    %title Robbie Pitts
+    %meta{ name: "viewport", content:"initial-scale=1, maximum-scale=1, width=device-width" }
+    = stylesheet_link_tag "whitespace-reset"
+    = stylesheet_link_tag "http://fast.fonts.net/cssapi/152848eb-060e-4a58-9f08-75da3b0b17da.css"
+    = stylesheet_link_tag "all"
+    = javascript_include_tag "all"
+    
+  %body
+    %header
+      %h1 R. Pitts
+    #content
+      = yield

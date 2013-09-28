@@ -1,0 +1,133 @@
+/* Fonts */
+$fallback-family: Helvetica Neue, Helvetica, Arial, sans-serif
+$avenir-thin: 'Avenir Next W01 Thin', $fallback-family
+$avenir-thin-italic: 'AvenirNextW01-ThinItali', $fallback-family
+$avenir-regular: 'AvenirNextLTW01-Regular', $fallback-family
+$avenir-regular-italic: 'AvenirNextLTW01-Italic', $fallback-family
+$avenir-bold: 'Avenir Next LT W01 Demi', $fallback-family
+$avenir-bold-italic: 'AvenirNextLTW01-DemiIta', $fallback-family
+$normal: $avenir-thin
+$normal-italic: $avenir-thin-italic
+$bold: $avenir-bold
+$bold-italic: $avenir-bold-italic
+
+/* Colors */
+$orange: #eb9e00
+$orange-white: #fffefc
+
+/* Responsive Breakpoints */
+$desktop-min: 980px
+
+/* Mixins */
+@mixin clearfix
+  &:before, &:after
+    content: ""
+    display: block
+    clear: both
+
+body
+  font-size: 16.14px
+  font-family: $normal
+  color: $orange
+  background: $orange-white
+
+em
+  font-family: $normal-italic
+
+h1, h2, h3, h4, h5
+  font-family: $bold
+
+p
+  line-height: 2em
+
+a
+  color: $orange
+  text-decoration: none
+  font-family: $avenir-regular
+  transition: color .4s
+  &:hover
+    color: darken($orange, 10%)
+
+header
+  position: absolute
+  top: 0
+  width: 100%
+  margin: 0
+  padding: 30px 0 0
+  &:before
+    content: ""
+    display: block
+    position: absolute
+    z-index: 0
+    bottom: 83px
+    height: 93px
+    width: 100%
+    background: transparent
+  &:after
+    content: ""
+    display: block
+    position: absolute
+    z-index: 0
+    bottom: 83px
+    height: 0px
+    width: 100%
+    background: transparent
+    border-bottom: 1px solid $orange
+  h1
+    position: relative
+    z-index: 1
+    width: 166px
+    height: 166px
+    margin: 0 auto
+    text-indent: -100%
+    background: transparent url(/images/logo.svg) top center no-repeat
+
+#content
+  width: 100%
+  margin: 226px auto 30px
+  @media (min-width: $desktop-min)
+    width: 960px
+  &:after
+    content: ""
+    display: block
+    clear: both
+  section#intro
+    margin: 0px 0px 1em
+    @include clearfix
+    p
+      box-sizing: border-box
+      float: left
+      width: 100%
+      margin: 0px 0px 1em
+      padding: 0px 10px
+      vertical-align: top
+      @media (min-width: $desktop-min)
+        width: 300px
+        margin: 0px
+  ul#skills
+    box-sizing: border-box
+    clear: both
+    width: 100%
+    margin: 2em 0px
+    padding: 0px 10px
+    @media (min-width: $desktop-min)
+      width: 960px
+      padding: 0px
+      @include clearfix
+    li
+      box-sizing: border-box
+      display: block
+      float: left
+      width: 50%
+      margin: .5em 0px
+      @media (min-width: $desktop-min)
+        width: 140px
+        height: 140px
+        margin: 10px
+        padding: 5px
+        font-size: 14px
+        text-align: center
+        line-height: 128px
+        border: 1px solid $orange
+        border-radius: 50%
+        cursor: default
