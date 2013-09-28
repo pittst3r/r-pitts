@@ -46,9 +46,7 @@
 # end
 
 set :css_dir, 'stylesheets'
-
 set :js_dir, 'javascripts'
-
 set :images_dir, 'images'
 
 # Build-specific configuration
@@ -69,8 +67,12 @@ configure :build do
   # set :http_prefix, "/Content/images/"
   
   set :haml, { :format => :html5 }
-  
   set :sass
+  
+  activate :deploy do |deploy|
+    deploy.build_before = true
+    deploy.method = :git
+  end
   
 end
 
