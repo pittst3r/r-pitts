@@ -72,7 +72,7 @@ configure :build do
   # set :http_prefix, "/Content/images/"
   
   set :haml, { :format => :html5 }
-  set :sass
+  set :sass, {}
   
 end
 
