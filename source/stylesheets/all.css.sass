@@ -1,4 +1,7 @@
-/* Fonts */
+/*\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+  Fonts
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+
 $fallback-family: Helvetica Neue, Helvetica, Arial, sans-serif
 $avenir-thin: 'Avenir Next W01 Thin', $fallback-family
 $avenir-thin-italic: 'AvenirNextW01-ThinItali', $fallback-family
@@ -11,24 +14,49 @@ $normal-italic: $avenir-thin-italic
 $bold: $avenir-bold
 $bold-italic: $avenir-bold-italic
 
-/* Colors */
-$orange: #eb9e00
+
+/*\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+  Colors
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+
+$orange: rgb(235, 158, 0)
+$orange-with-alpha: rgba(235, 158, 0, .8)
 $orange-white: #fffefc
 $orange-dark: darken($orange, 10%)
 $background: white
 
-/* Responsive Breakpoints */
-$desktop-min: 980px
 
-/* Mixins */
+/*\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+  Responsive Breakpoints
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+
+$xlarge-view-min: 1221px
+$large-view-min: 1025px
+$small-view-min: 451px
+
+
+/*\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+  Mixins
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+
 @mixin clearfix
   &:before, &:after
     content: ""
     display: block
     clear: both
 
+@mixin border-box-sizing
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+
+/*\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+Styles
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+
 body
-  font-size: 1em
+  font-size: 16px
   font-family: $normal
   color: $orange
   cursor: default
@@ -52,34 +80,43 @@ a
     color: $orange-dark
 
 header
+  @include border-box-sizing
+  position: fixed
+  top: 0
+  width: 100%
   margin: 0
-  padding: .5em 4em
-  background-color: $orange
+  padding: 1em 1em
+  @media (min-width: $xlarge-view-min)
+    padding: 1em 4em
+  background-color: $orange-with-alpha
   @include clearfix
   h1
     float: left
-    width: 80px
-    height: 80px
+    width: 62px
+    height: 62px
     margin: 0
     text-indent: -100%
     background: transparent url(../images/logo@2x.png) top left no-repeat
-    background-size: 80px
+    background-size: 62px
   ul
     float: right
-    width: 50%
+    width: 75%
+    @media (max-width: $small-view-min)
+      font-size: .8em
     li
       float: right
       padding-left: 2em
-      line-height: 80px
+      line-height: 62px
       a
         font-family: $normal
-        color: lighten($orange, 40%)
+        color: white
         &:hover
-          color: white
+          color: lighten($orange, 40%)
 
 #content
-  padding: 2em .5em
-  @media (min-width: $desktop-min)
+  margin-top: 5.9em
+  padding: 2em 1em
+  @media (min-width: $xlarge-view-min)
     padding: 2em 4em
   &:after
     content: ""
@@ -89,34 +126,37 @@ header
     margin: 0 -2% 1em 0
     @include clearfix
     p
-      box-sizing: border-box
+      @include border-box-sizing
       float: left
       width: 100%
       margin: 0 0 1em
       padding: 0 2% 0 0
       vertical-align: top
-      @media (min-width: $desktop-min)
+      @media (min-width: $large-view-min)
         width: 33.33%
         margin: 0px
   ul#skills
-    box-sizing: border-box
+    @include border-box-sizing
+    @include clearfix
     clear: both
-    margin: 2em -1%
+    margin: 0em -1% 2em
     padding: 0
-    @media (min-width: $desktop-min)
-      @include clearfix
     li
-      box-sizing: border-box
+      @include border-box-sizing
       display: block
       float: left
-      width: 50%
-      margin: .5em 0
-      @media (min-width: $desktop-min)
+      width: 48%
+      margin: 1%
+      padding: 1em
+      font-size: .8em
+      text-align: center
+      line-height: 1em
+      background: lighten($orange, 50%)
+      border-radius: .4em
+      @media (max-width: $small-view-min)
+        min-width: 0
+        font-size: .6em
+      @media (min-width: $large-view-min)
+        width: 31%
+      @media (min-width: $xlarge-view-min)
         width: 18%
-        margin: 1%
-        padding: 1em
-        font-size: 14px
-        text-align: center
-        line-height: 1em
-        background: lighten($orange, 50%)
-        border-radius: .4em
