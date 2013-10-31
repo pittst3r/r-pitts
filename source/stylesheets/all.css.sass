@@ -79,6 +79,21 @@ a
   &:hover
     color: $orange-dark
 
+code
+  font-size: .8em
+
+p, li
+  > code
+    padding: .3em
+    background: #eee
+    border-radius: .4em  
+
+pre
+  color: #444
+  code
+    padding: 1em
+    border-radius: .4em
+
 header
   @include border-box-sizing
   position: fixed
@@ -191,6 +206,14 @@ header
       p
         margin: 1em 0
         line-height: 1.5em
+      ul, ol
+        list-style-position: inside
+      ol
+        list-style-type: decimal
+      ul
+        list-style-type: square
+      li
+        margin: .5em 0
       section
         &.meta
           margin: .5em 0
