@@ -112,6 +112,23 @@ header
         color: white
         &:hover
           color: lighten($orange, 40%)
+  &.blog
+    background: none
+    h1
+      height: auto
+      font-size: 2em
+      color: white
+      text-indent: initial
+      text-transform: uppercase
+      letter-spacing: .1em
+      line-height: initial
+      small
+        display: block
+        font-family: $avenir-thin-italic
+        font-size: .4em
+        text-transform: none
+    ul
+      width: 20%
 
 #content
   margin-top: 5.9em
@@ -163,6 +180,8 @@ header
   &.blog
     article
       margin: 0 0 2em
+      padding: 0 0 1em
+      border-bottom: 1px solid rgba(235, 158, 0, 0.2)
       h2
         margin: 1em 0 0
         font-size: 1.2em
@@ -181,3 +200,6 @@ header
               padding: .4em .4em .2em
               border-radius: .3em
               background: rgba(235, 158, 0, .2)
+              a
+                font-family: $normal
+                  
